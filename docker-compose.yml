@@ -1,0 +1,23 @@
+version: '2'
+services:
+  backend-s:
+    build: ./server
+    image: backlatest:latest
+    container_name: server-c
+    volumes:
+        - (path to folder)/server:/app
+    ports:
+      - "5000:5000"
+  client-s:
+    build: ./client
+    image: frontlatest:latest
+    container_name: client-c
+    volumes:
+      - (path to folder)/client:/quickstart
+      - /quickstart/node_modules
+    ports:
+      - "4200:4200"
+    links:
+      - backend-s
+    depends_on:
+      - backend-s

@@ -1,0 +1,172 @@
+
+.app-toolbar-filler {
+  flex: 1 1 auto;
+}
+md-sidenav-layout.m2app-dark {
+  background: black;
+}
+.app-content {
+  padding: 20px;
+}
+.app-content md-card {
+  margin: 20px;
+}
+.app-sidenav {
+  padding: 10px;
+  min-width: 100px;
+}
+.app-content md-checkbox {
+  margin: 10px;
+}
+body {
+  margin: 0 !important;
+}
+.app-toolbar-menu {
+  padding: 0 14px 0 14px;
+  color: white;
+}
+.app-icon-button {
+  box-shadow: none;
+  user-select: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  filter: none;
+  font-weight: normal;
+  height: auto;
+  line-height: inherit;
+  margin: 0;
+  min-width: 0;
+  padding: 0;
+  text-align: left;
+  text-decoration: none;
+}
+.app-action {
+  display: inline-block;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+.app-spinner {
+  height: 30px;
+  width: 30px;
+  display: inline-block;
+}
+.app-input-icon {
+  font-size: 16px;
+}
+.app-list {
+  border: 1px solid rgba(0,0,0,0.12);
+  width: 350px;
+  margin: 20px;
+}
+.app-progress {
+  margin: 20px;
+}
+
+/* settings for dropdown menus in "Components availabe" */
+
+/*-----------------------------------------------------*/
+
+/* settings for navigation tabs buttons: "Home" "Contact" "Help"  */
+
+/*---------------------------------------------------------------*/
+
+
+/* settings for background, fonts for the whole page and text bars*/
+
+/*-----------------------------------------------------------------*/
+
+
+/*tags used to format text*/
+
+/*--------------------------*/
+
+
+/* unused tags */
+p {
+
+  font-size: 25px;
+  color: grey;
+}
+/*--------*/
+
+
+/* settings for textbars */
+
+/*----------------------------------------------------------------------------*/
+
+
+/* settings for button and input bars */
+
+/*-----------------------------------*/
+
+
+/* dragula-specific example page styles */
+.wrapper {
+  display: table;
+  margin: 30px;
+}
+.gh-fork {
+  position: fixed;
+  top: 0;
+  right: 0;
+  border: 0;
+}
+
+.container {
+  display: table-cell;
+  background-color: rgba(255, 255, 255, 0.2);
+  width: 50%;
+
+}
+
+.container:nth-child(odd) {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/*
+ * note that styling gu-mirror directly is a bad practice because it's too generic.
+ * you're better off giving the draggable elements a unique class and styling that directly!
+ */
+.container div,
+.gu-mirror {
+  margin: 10px;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: opacity 0.4s ease-in-out;
+}
+.container div {
+  cursor: move;
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+}
+.gu-mirror {
+  cursor: grabbing;
+  cursor: -moz-grabbing;
+  cursor: -webkit-grabbing;
+}
+.container .ex-moved {
+  background-color: #e74c3c;
+}
+.container.ex-over {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.handle {
+  padding: 0 5px;
+  margin-right: 5px;
+  background-color: rgba(0, 0, 0, 0.4);
+  cursor: move;
+}
+nested-repeat-example .container span {
+  display: block;
+  padding: 8px;
+}
+
+
+
+
+
+.containerX {
+  flex-wrap: wrap;
+}

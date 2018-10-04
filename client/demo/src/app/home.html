@@ -1,0 +1,112 @@
+<md-sidenav-container [class.m2app-dark]="isDarkTheme">
+  <md-sidenav #sidenav mode="side" class="app-sidenav">
+  Sidenav
+  </md-sidenav>
+  <md-toolbar color="primary">
+  <md-toolbar-row>
+    <span class="imageposition"><img src="assets/img/Welcome.png" onerror="this.src='assets/img/logo.png'" alt="angular-dragula"/></span>
+  </md-toolbar-row>
+  </md-toolbar>
+  <md-toolbar color="primary">
+  </md-toolbar>
+  <md-toolbar color="primary">
+  <md-toolbar-row>Welcome!</md-toolbar-row>
+</md-toolbar>
+  <md-tab-group color='accent'>
+      <md-tab>
+        <ng-template md-tab-label>Home</ng-template>
+        <md-grid-list cols=500 rowHeight=100 color="'green'">
+
+          <!--- grid tile for "Environments" -->
+              <md-grid-tile [colspan]="100" [rowspan]="10" [style.background]="'rgba(255, 255, 255, 0.1)'" layout-fill>
+                <md-grid-tile-header [style.background]="'rgba(255, 255, 255, 0.1)'">
+                  <md-card width=100px color="accent"><md-card-content><p>Communication with backend</p></md-card-content></md-card>
+                </md-grid-tile-header>
+                <div class='backbutton'>
+                  <button md-raised-button (click)="getDataFromBackend()" color='accent'>
+                    <span>GET</span>
+                  </button>
+                </div>
+                <div class='inputback'>
+                  <md-input-container color="accent"><input mdInput placeholder="Save something to backend" [(ngModel)]="inputback" color="accent"></md-input-container>
+                  <button md-raised-button (click)="postDataToBackend()" color='accent'>
+                    Save
+                  </button>
+                </div>
+                <div class="textinenv">
+                  {{hello}}
+                </div>
+              </md-grid-tile>
+
+          <!--- grid tile for app servers -->
+              <md-grid-tile layout="column" [colspan]="300" [rowspan]="10" [style.background]="'rgba(255, 255, 255, 0.5)'" layout-fill>
+                  <md-grid-tile-header [style.background]="'rgba(255, 255, 255, 0.1)'">
+                    <md-card color="accent"><md-card-content>
+                    <md-toolbar>
+                      <md-input-container color="accent"><input mdInput placeholder="Input1" [(ngModel)]="client"></md-input-container>
+                      <md-input-container color="accent"><input mdInput placeholder="Input2" [(ngModel)]="type"></md-input-container>
+                      <md-input-container color="accent"><input mdInput placeholder="Input3" [(ngModel)]="domain"></md-input-container>
+                      <button md-raised-button color='accent'>Install</button>
+                    </md-toolbar></md-card-content></md-card>
+                  </md-grid-tile-header>
+
+                  <div class="containerX">
+                    <div fxFlex="33.33%" *ngFor='let server of servers; let i = index' >
+                      <md-card><md-card-content>
+                         <div class='container' [dragula]='"another-bag"' [dragulaModel]='server'>
+                           {{headers[i]}}
+                          <div *ngFor='let content of server' [innerHtml]='content'></div>
+                        </div>
+                        <div class='empty' *ngIf="!server.length">
+                           Empty
+                        </div>
+                      </md-card-content></md-card>
+                    </div>
+                  </div>
+                  <div class="addserversbutton">
+                    <button md-raised-button (click)="addServers(servers.length)" color='accent'>AddBags</button>
+                    <button md-raised-button (click)="donothing()" color='accent'>Save</button>
+                    <button md-raised-button (click)="donothing()" color='accent'>Deploy</button>
+                 </div>
+              </md-grid-tile>
+
+          <!--- grid tile for components available --->
+              <md-grid-tile [colspan]="100" [rowspan]="10" [style.background]="'rgba(255, 255, 255, 0.1)'">
+                <md-grid-tile-header [style.background]="'rgba(255, 255, 255, 0.1)'">
+                  <md-card><md-card-content><p>Components available</p></md-card-content></md-card>
+                </md-grid-tile-header>
+                  <div class='componentsavailable'>
+                      <div *ngFor='let type of components' class="dropdown">
+                        <button md-raised-button (click)="dropFunction(type.name)" class="dropbtn">{{type.name}}</button>
+                          <div id='{{type.name}}' class="dropdown-content">
+                            <div class='empty' *ngIf="!type.data.length">
+                              Empty
+                            </div>
+                            <div class='container' [dragula]='"another-bag"' [dragulaModel]='type.data'>
+                             <div *ngFor='let text of type.data' [innerHtml]='text'>
+                             </div>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+              </md-grid-tile>
+          </md-grid-list>
+      </md-tab>
+      <md-tab>
+        <ng-template md-tab-label>Contacts</ng-template>
+        <md-grid-list cols=500 rowHeight=100>
+              <md-grid-tile [colspan]="500" [rowspan]="10" [style.background]="'rgba(255, 255, 255, 0.5)'">
+                {{contact1.email}}
+            </md-grid-tile>
+        </md-grid-list>
+      </md-tab>
+      <md-tab>
+        <ng-template md-tab-label>Help</ng-template>
+        <md-grid-list cols=500 rowHeight=100  [routerLink]="['/help']">
+              <md-grid-tile [colspan]="500" [rowspan]="10" [style.background]="'rgba(255, 255, 255, 0.5)'">
+                {{message}}
+            </md-grid-tile>
+        </md-grid-list>
+      </md-tab>
+  </md-tab-group>
+</md-sidenav-container>
